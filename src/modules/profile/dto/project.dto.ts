@@ -18,5 +18,9 @@ export class ProjectDto {
   @IsOptional()
   link?: string;
 
+  @IsString()
+  @IsOptional()
+  github_link?: string;
+
   skills: SkillDto[];
 }

@@ -168,7 +168,7 @@ export class ProfileService {
     try {
       const query = `
       SELECT p.title, p.description, p.banner_url, p.link, 
-             s.skill_name AS skill_name, s.picture_url AS icon
+             s.skill_name AS skill_name, s.picture_url AS icon, s.github_link
       FROM projects p
       LEFT JOIN project_skills ps ON p.id = ps.project_id
       LEFT JOIN skills s ON ps.skill_id = s.id AND s.language_id = p.language_id
@@ -192,6 +192,7 @@ export class ProfileService {
             description: row.description,
             banner_url: row.banner_url,
             link: row.link,
+            github_link: row.github_link,
             skills: [],
           };
           acc.push(project);
